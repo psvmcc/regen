@@ -1,0 +1,63 @@
+registries:
+  local:
+    url: 192.168.1.10:5000
+    insecure: true
+    images:
+      some_image:
+        tags:
+          - latest
+  dockerhub:
+    url: registry-1.docker.io
+    image_prefix: docker.io
+    images:
+      library/nginx:
+        regexp: '^1.24.\d+$'
+        tags:
+          - latest
+      prom/prometheus:
+        tags:
+          - v2.25.0
+          - v2.26.0
+  teleport:
+    url: public.ecr.aws
+    images:
+      gravitational/teleport-distroless:
+        regexp: '^13.1.\d+$'
+  dh_auth:
+    url: registry-1.docker.io
+    image_prefix: docker.io
+    auth:
+      login: psvmcc
+      password: dckr_pat_DPOCLGMNORxIIljheo5qLRIMxAg
+    images:
+      psvmcc/test:
+        tags:
+          - latest
+  k8s-gcr:
+    url: k8s.gcr.io
+    image_prefix: lalalala
+    images:
+      pause:
+        tags:
+          - '3.2'
+          - '3.3'
+  ghcr:
+    url: ghcr.io
+    images:
+      prymitive/karma:
+        tags:
+          - 'v0.93'
+          - 'v0.108'
+  quay:
+    url: quay.io
+    images:
+      coreos/flannel:
+        tags:
+          - v0.13.0
+          - v0.14.0
+  k8s:
+    url: registry.k8s.io
+    images:
+      pause:
+        tags:
+          - '3.9'
